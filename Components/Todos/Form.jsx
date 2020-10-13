@@ -14,10 +14,8 @@ const initialForm = {
 }
 
 const Form = (props) => {
-
     const [form, setForm] = useState(initialForm)
     const list = JSON.parse(localStorage.getItem('todos')) || []
-
     const handleChange = e => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
