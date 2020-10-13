@@ -18,15 +18,22 @@ const Card = (props) => {
         localStorage.setItem('todos', JSON.stringify(filtered))
         window.location.reload()
     }
+
+    const handleComplete = e => {
+        const tasks = JSON.parse(localStorage.getItem('todos'))
+        const map = tasks.map(task => task.id === props.todo.id ? { ...task, completed: !task.completed } : task)
+        localStorage.setItem('todos', JSON.stringify(map))
+        window.location.reload()
+    }
     return (
         <div className="card">
             <div>
-                <FontAwesomeIcon icon={faCheck} className="check" />
+                <FontAwesomeIcon icon={faCheck} className={props.todo.completed ? "completed check" : "check"} onClick={e => handleComplete(e)} />
             </div>
             <div>
                 <p>{props.todo.task}</p>
             </div>
-            <div className="cardDate">
+            <div className={props.todo.completed ? "completed cardDate" : "cardDate"}>
                 <input
                     type="date"
                     name="due"
@@ -34,7 +41,7 @@ const Card = (props) => {
                     onChange={e => setDueDate(e.target.value)}
                     className="cardForm"
                 />
-                <div className="completed">
+                <div className="delete">
                     <FontAwesomeIcon icon={faTimes} onClick={e => handleClick(e)} />
                 </div>
             </div>

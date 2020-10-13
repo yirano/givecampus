@@ -96,8 +96,8 @@ input[type="submit"] {
 
 .check {
 	font-size: 1.5rem;
-	color: rgb(128, 128, 128);
-	border: 2px solid rgb(128, 128, 128);
+	color: rgb(204, 204, 204);
+	border: 2px solid rgb(204, 204, 204);
 	padding: 4px;
 	margin: 14px;
 	border-radius: 50%;
@@ -116,10 +116,15 @@ input[type="submit"] {
 	color: rgb(128, 128, 128);
 }
 
-.completed {
+.delete {
 	position: absolute;
 	color: rgba(255, 0, 0, 0.719);
 	right: 20px;
 	font-size: 1.7rem;
 	cursor: pointer;
+}
+
+.completed {
+	color: green;
+	border-color: green;
 }
