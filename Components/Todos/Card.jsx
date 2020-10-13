@@ -42,7 +42,6 @@ const Card = (props) => {
                 <p>{props.todo.task}</p>
             </div>
 
-            {/*  */}
             <div className="cardDate">
                 <input
                     type="date"
