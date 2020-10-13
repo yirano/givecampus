@@ -13,6 +13,7 @@ const App = () => {
         <div className="app">
             <Header />
 
+            {/* Toggle input display when user clicks button */}
             <div className="toggleForm">
                 <button onClick={() => setHideForm(!hideForm)}>
                     <FontAwesomeIcon icon={faPlus} />Add task
