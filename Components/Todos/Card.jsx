@@ -3,11 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons"
 
 
-// const t = new Date()
-// const date = String(t.getDate()).padStart(2, '0')
-// const month = String(t.getMonth() + 1).padStart(2, '0')
-// const year = t.getFullYear()
-// const today = `${year}-${month}-${date}`
+const stylePara = {
+    fontStyle: 'italic',
+    color: "rgb(204, 204, 204)",
+    textDecoration: "line-through"
+
+}
 
 const Card = (props) => {
     const [dueDate, setDueDate] = useState()
@@ -30,7 +31,7 @@ const Card = (props) => {
             <div>
                 <FontAwesomeIcon icon={faCheck} className={props.todo.completed ? "completed check" : "check"} onClick={e => handleComplete(e)} />
             </div>
-            <div>
+            <div style={props.todo.completed ? stylePara : null}>
                 <p>{props.todo.task}</p>
             </div>
             <div className={props.todo.completed ? "completed cardDate" : "cardDate"}>
