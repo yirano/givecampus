@@ -13,13 +13,16 @@ const initialForm = {
     id: Date.now()
 }
 
-const Form = (props) => {
+const Form = () => {
     const [form, setForm] = useState(initialForm)
+    // checks to see if localStorage has 'todos' and if not, defaults to an empty array
     const list = JSON.parse(localStorage.getItem('todos')) || []
+
     const handleChange = e => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
+    // push new task into list array and store into localStorage
     const handleSubmit = () => {
         list.push(form)
         setForm(initialForm)
