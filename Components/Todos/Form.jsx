@@ -46,6 +46,8 @@ const Form = () => {
                 onChange={e => handleChange(e)}
                 className="taskForm"
             />
+
+            {/* Disable button if task input is empty -- this prevents empty tasks being added */}
             <input type="submit" value="Add" disabled={form.task.trim() === '' ? true : false} />
         </form>
     )
