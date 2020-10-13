@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from "./Card"
 
-const List = () => {
+const List = (props) => {
+    console.log('TODO LIST ', props.todos)
     return (
-        <div>
-            <Card />
+        <div className="list">
+            {props.todos.map(todo => <Card todo={todo} key={todo.id} />)}
         </div>
     )
 }

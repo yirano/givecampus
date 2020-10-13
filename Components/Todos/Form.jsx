@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-const today = new Date()
-const date = String(today.getDate()).padStart(2, '0')
-const month = String(today.getMonth() + 1).padStart(2, '0')
-const year = today.getFullYear()
+const t = new Date()
+const date = String(t.getDate()).padStart(2, '0')
+const month = String(t.getMonth() + 1).padStart(2, '0')
+const year = t.getFullYear()
+
 
 const initialForm = {
     task: '',
@@ -13,6 +14,7 @@ const initialForm = {
 }
 
 const Form = (props) => {
+
     const [form, setForm] = useState(initialForm)
     const list = JSON.parse(localStorage.getItem('todos')) || []
 
@@ -43,7 +45,7 @@ const Form = (props) => {
                 onChange={e => handleChange(e)}
                 className="taskForm"
             />
-            <input type="submit" value="Add" />
+            <input type="submit" value="Add" disabled={form.task.trim() === '' ? true : false} />
         </form>
     )
 }
